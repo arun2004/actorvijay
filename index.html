@@ -353,10 +353,6 @@
                 }, 200);
             });
         });
-        $(".classy-navbar-toggler").click(() => {
-            if (window.innerWidth > 992)
-                $("#navbarSupportedContent").toggleClass("show");
-        });
         (function () {
             const second = 1000,
                 minute = second * 60,
@@ -392,14 +388,13 @@
 
                     //do something later when date is reached
                     if (distance < 0) {
-                        document.getElementById("countdown").style.display = "none";
-                        document.getElementById("content").style.display = "block";
                         clearInterval(x);
                     }
                     //seconds
                 }, 0)
         }());
-        console.log(window.innerWidth);
+        document.getElementById("countdown").style.display = "block";
+        document.getElementById("content").style.display = "block";
     </script>
 
 </body>
