@@ -1,0 +1,102 @@
+[
+    {
+      "question": "What is Vijay's full name?",
+      "options": [
+        "Vijay Joseph Chandrasekhar",
+        "Vijay Joseph",
+        "Vijay Kumar",
+        "Vijay Prakash"
+      ],
+      "answer": "Vijay Joseph Chandrasekhar"
+    },
+    {
+      "question": "In which year did Vijay make his acting debut in the Tamil film industry?",
+      "options": [
+        "1992",
+        "1994",
+        "1996",
+        "1998"
+      ],
+      "answer": "1994"
+    },
+    {
+      "question": "Which film marked Vijay's breakthrough as a lead actor in Tamil cinema?",
+      "options": [
+        "Ghilli",
+        "Thuppakki",
+        "Mersal",
+        "Pokkiri"
+      ],
+      "answer": "Ghilli"
+    },
+    {
+      "question": "In which film did Vijay play a dual role as a father and son?",
+      "options": [
+        "Thuppakki",
+        "Sarkar",
+        "Mersal",
+        "Kaththi"
+      ],
+      "answer": "Mersal"
+    },
+    {
+      "question": "Who directed Vijay in the film 'Mersal'?",
+      "options": [
+        "AR Murugadoss",
+        "Atlee",
+        "Vetrimaaran",
+        "Gautham Menon"
+      ],
+      "answer": "Atlee"
+    },
+    {
+      "question": "Which film of Vijay became the highest-grossing Tamil film at the time of its release?",
+      "options": [
+        "Mersal",
+        "Sarkar",
+        "Master",
+        "Theri"
+      ],
+      "answer": "Master"
+    },
+    {
+      "question": "In which Vijay film does he portray the character of Joseph Kuruvilla?",
+      "options": [
+        "Mersal",
+        "Master",
+        "Ghilli",
+        "Theri"
+      ],
+      "answer": "Theri"
+    },
+    {
+      "question": "How many Vijay Awards has Vijay won so far?",
+      "options": [
+        "8",
+        "10",
+        "12",
+        "14"
+      ],
+      "answer": "12"
+    },
+    {
+      "question": "Which film featured Vijay as a social activist fighting against corruption?",
+      "options": [
+        "Theri",
+        "Kaththi",
+        "Vettaikaaran",
+        "Bairavaa"
+      ],
+      "answer": "Kaththi"
+    },
+    {
+      "question": "Vijay's film 'Thuppakki' was remade in Hindi with Akshay Kumar in the lead role. What was the Hindi remake titled?",
+      "options": [
+        "Rowdy Rathore",
+        "Holiday",
+        "Special 26",
+        "Baby"
+      ],
+      "answer": "Holiday"
+    }
+  ]

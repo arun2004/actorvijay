@@ -8,120 +8,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Title -->
-    <title>OTFC - Thalapathy Fans Club</title>
+    <title>Alime - Photography HTML Template</title>
 
     <!-- Favicon -->
     <link rel="icon" href="./img/core-img/favicon.png">
 
     <!-- Stylesheet -->
-    <link rel="stylesheet" href="style.css">
-
-    <style>
-        .reveal-btn {
-            border: 3px solid white;
-            background: linear-gradient(-40deg, rgb(253, 56, 56), rgb(108, 35, 35));
-            padding: 50px;
-            font-size: 35px;
-            color: white;
-            aspect-ratio: 1;
-            border-radius: 50%;
-            box-shadow: 5px 5px 15px 1px rgba(0, 0, 0, 0.601);
-            transition: .2s ease-out;
-        }
-
-        .reveal-btn:hover {
-            cursor: pointer;
-            transform: scale(1.2);
-        }
-
-        .reveal-btn:focus,
-        .reveal-btn:active {
-            outline: none;
-        }
-
-        .cdp-container {
-            transform: scale(0);
-            overflow: hidden;
-            transition: .5s ease-out;
-        }
-
-        .cdp-img {
-            max-width: 500px;
-        }
-
-        #btnsCover {
-            margin: 30px 0px;
-            text-align: center;
-        }
-
-        #btnsCover button {
-            padding: 10px 12px;
-            border: 0px;
-            color: #fff;
-            font-size: 14px;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-                Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-            background-color: #3e3e3e;
-            cursor: pointer;
-            border-radius: 2px;
-        }
-
-        #btnsCover button:active {
-            position: relative;
-            top: 2px;
-        }
-
-        #shuffleBtn {
-            margin-right: 8px;
-        }
-
-        #cover {
-            width: 496px;
-            /* height: 504px; */
-            margin: 30px auto;
-            padding: 8px;
-            border-radius: 2px;
-        }
-
-        #cover:after {
-            content: "";
-            clear: both;
-            display: block;
-            height: 0px;
-            visibility: hidden;
-        }
-
-        .img {
-            width: 120px;
-            height: 122px;
-            float: left;
-            padding: 2px;
-            cursor: pointer;
-            left: 0px;
-            top: 0px;
-            position: relative;
-            transition: 0.1s ease transform;
-        }
-
-        .img.blank {
-            cursor: auto;
-        }
-
-        .img:active {
-            transform: scale(0.97);
-        }
-
-        .img img {
-            display: block;
-            width: 120px;
-            height: 122px;
-        }
-
-        .cdp-img {
-            width: 100%;
-        }
-    </style>
-
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./custom.css">
+    <link rel="stylesheet" href="./quiz.css">
 </head>
 
 <body>
@@ -274,18 +169,30 @@
                         <li><span id="seconds"></span>Seconds</li>
                     </ul>
                 </div>
-                <div id="content" class="emoji">
-                    <div class="container-fluid text-center">
-                        <button class="reveal-btn">Reveal CDP</button>
-                        <div class="cdp-container">
-                            <img src="./img/core-img/cdp.jpg" alt="vijay cdp" class="cdp-img img-fluid">
-                        </div>
-                    </div>
-                    <div id="btnsCover">
-                        <button id="restartBtn">Restart</button>
-                    </div>
-                    <div id="cover"></div>
+            </div>
+        </div>
+        <div id="content" class="emoji">
+            <div class="container-fluid text-center">
+                <button class="reveal-btn">Reveal CDP</button>
+                <div class="cdp-container">
                 </div>
+            </div>
+            <div id="btnsCover">
+                <button id="restartBtn">Restart</button>
+            </div>
+            <div id="cover" class="row" style="box-sizing: unset;"></div>
+        </div>
+        <div class="app shadow">
+            <h1>How much do you know about Thalapathy?</h1>
+            <div class="quiz">
+                <h2 id="question"></h2>
+                <div id="answer-buttons">
+                    <button class="ans-btn"></button>
+                    <button class="ans-btn"></button>
+                    <button class="ans-btn"></button>
+                    <button class="ans-btn"></button>
+                </div>
+                <button id="next-btn">Next</button>
             </div>
         </div>
     </div>
@@ -415,176 +322,9 @@
     <script src="js/alime.bundle.js"></script>
     <!-- Active -->
     <script src="js/default-assets/active.js"></script>
-    <script>
-        $(document).ready(() => {
-            $(".cdp-container").hide();
-            $(".reveal-btn").click(() => {
-                $(".reveal-btn").css("transform", "scale(0)");
-                setTimeout(() => {
-                    $(".reveal-btn").hide();
-                    $(".cdp-container").show();
-                    setTimeout(() => {
-                        $(".cdp-container").css("transform", "scale(1)");
-                    }, 100);
-                }, 200);
-            });
-        });
-        $(".classy-navbar-toggler").click(() => {
-            if (window.innerWidth > 992)
-                $("#navbarSupportedContent").toggleClass("show");
-        });
-        $(function () {
-            var tileSize,
-                i,
-                blank,
-                blankTile,
-                par = $("#cover"),
-                bTileIndex,
-                neighbourTiles = [],
-                nLen,
-                ind,
-                imgUrls = [5, 1, 7, 3, 9, 6, 11, 4, 2, 13, 10, 8, 12, 14, 15, 16];
-                // imgUrls = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 16, 15];
-
-            function moveImage() {
-                var blankTileIndex,
-                    clickedTileIndex,
-                    id = $(this).attr("id");
-
-                blankTileIndex = $(".img").index(blankTile);
-                clickedTileIndex = $(".img").index(this);
-
-                if (blankTileIndex == clickedTileIndex + 1 && blankTileIndex % 4 != 0) {
-                    $("#" + id).before(blankTile);
-                } else if (
-                    blankTileIndex == clickedTileIndex - 1 &&
-                    clickedTileIndex % 4 != 0
-                ) {
-                    $("#" + id).after(blankTile);
-                } else if (
-                    blankTileIndex + 4 == clickedTileIndex ||
-                    blankTileIndex == clickedTileIndex + 4
-                ) {
-                    var prev1 = $("#" + id).prev(),
-                        prev2 = blankTile.prev();
-
-                    if (prev1.length == 0) par.prepend(blankTile);
-                    else $(prev1).after(blankTile);
-
-                    if (prev2.length == 0) par.prepend($("#" + id));
-                    else $(prev2).after($("#" + id));
-                }
-                win_check();
-            }
-
-            function win_check() {
-                var prev_img_no = 0;
-                var images = $(".img");
-                for (var i = 0; i < 16; i++) {
-                    var cur_img_no = parseInt($($(images)[i]).attr("id").slice(4, 10), 10);
-                    if (cur_img_no != prev_img_no + 1) return;
-                    prev_img_no = cur_img_no;
-                }
-                $("#cover").html('<img class="cdp-img" src="./img/core-img/cdp.jpg" alt="">');
-            }
-
-            function startApp() {
-                par.html("");
-
-                for (i = 1; i <= 16; i++) {
-                    par.append(
-                        '<div class="img" id="img-' +
-                        imgUrls[i - 1] +
-                        '"><img src="./img/core-img/' +
-                        imgUrls[i - 1] +
-                        '.jpg" width=></div>'
-                    );
-                    $("#img-" + imgUrls[i - 1]).on("click", moveImage);
-                }
-
-                blank = 16;
-                $("#img-" + blank)
-                    .html("")
-                    .addClass("blank");
-
-                blankTile = $(".blank");
-                blankTile.off("click");
-
-                tileSize = $(".img").outerWidth();
-            }
-
-            function shuffle() {
-                for (i = 0; i < 153; i++) {
-                    neighbourTiles = [];
-                    bTileIndex = $(".img").index(blankTile);
-
-                    if (bTileIndex + 1 < 16 && (bTileIndex + 1) % 4 != 0)
-                        neighbourTiles.push(bTileIndex + 1);
-
-                    if (bTileIndex - 1 > -1 && bTileIndex % 4 != 0)
-                        neighbourTiles.push(bTileIndex - 1);
-
-                    if (bTileIndex + 4 < 16) neighbourTiles.push(bTileIndex + 4);
-
-                    if (bTileIndex - 4 > -1) neighbourTiles.push(bTileIndex - 4);
-
-                    nLen = neighbourTiles.length;
-
-                    ind = Math.floor(Math.random() * nLen);
-
-                    $("#cover .img:eq(" + neighbourTiles[ind] + ")").trigger("click");
-                }
-            }
-
-            $("#shuffleBtn").on("click", shuffle);
-            $("#restartBtn").on("click", startApp);
-
-            startApp();
-        });
-        (function () {
-            const second = 1000,
-                minute = second * 60,
-                hour = minute * 60,
-                day = hour * 24;
-
-            //I'm adding this section so I don't have to keep updating this pen every year :-)
-            //remove this if you don't need it
-            let today = new Date(),
-                dd = String(today.getDate()).padStart(2, "0"),
-                mm = String(today.getMonth() + 1).padStart(2, "0"),
-                yyyy = today.getFullYear(),
-                nextYear = yyyy + 1,
-                dayMonth = "06/22/",
-                birthday = dayMonth + yyyy;
-
-            today = mm + "/" + dd + "/" + yyyy;
-            if (today > birthday) {
-                birthday = dayMonth + nextYear;
-            }
-            //end
-
-            const countDown = new Date(birthday).getTime() + 19 * 3600000,
-                x = setInterval(function () {
-
-                    const now = new Date().getTime(),
-                        distance = countDown - now;
-
-                    document.getElementById("days").innerText = Math.floor(distance / (day)),
-                        document.getElementById("hours").innerText = Math.floor((distance % (day)) / (hour)),
-                        document.getElementById("minutes").innerText = Math.floor((distance % (hour)) / (minute)),
-                        document.getElementById("seconds").innerText = Math.floor((distance % (minute)) / second);
-
-                    //do something later when date is reached
-                    if (distance < 0) {
-                        clearInterval(x);
-                    }
-                    document.getElementById("countdown").style.display = "block";
-                    document.getElementById("content").style.display = "block";
-                    //seconds
-                }, 0)
-        }());
-    </script>
-
+    <script src="./timer.js"></script>
+    <script src="./puzzle.js"></script>
+    <script src="./quiz.js"></script>
 </body>
 
 </html>
