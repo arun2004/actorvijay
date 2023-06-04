@@ -81,5 +81,5 @@ $(document).ready(() => {
         }
     })
 
-    setTimeout(startQuiz, 100);
+    setTimeout(startQuiz, 1000);
 });
