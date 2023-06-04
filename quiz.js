@@ -63,16 +63,18 @@ $(document).ready(() => {
     $(ansBtns).click(selectAnswer);
 
     $(nextBtn).click(() => {
-        const selBtn = $(".ans-btn.selected");
-        const btnText = $(selBtn).text();
-        const isCorrect = questions[qIndex].answer === btnText;
-        $(selBtn).removeClass("selected");
-        if (isCorrect) {
-            score++;
-            $(selBtn).addClass("correct");
-        } else {
-            $(selBtn).addClass("incorrect");
-            $(ansBtns[answerIndex]).addClass("correct");
+       if (qIndex !== -1) {
+            const selBtn = $(".ans-btn.selected");
+            const btnText = $(selBtn).text();
+            const isCorrect = questions[qIndex].answer === btnText;
+            $(selBtn).removeClass("selected");
+            if (isCorrect) {
+                score++;
+                $(selBtn).addClass("correct");
+            } else {
+                $(selBtn).addClass("incorrect");
+                $(ansBtns[answerIndex]).addClass("correct");
+            }
         }
         qIndex++;
         if (qIndex < questions.length) setTimeout(showQuestion, 1000);
