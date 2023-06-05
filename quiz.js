@@ -11,7 +11,7 @@ $(document).ready(() => {
     let qIndex = 0,
         score = 0,
         answerIndex = -1;
-    
+
     function startQuiz() {
         qIndex = 0;
         score = 0;
@@ -53,20 +53,44 @@ $(document).ready(() => {
     }
 
     function showResult() {
-        $(".app h1").html(`You scored ${score}/${questions.length}`);
+        $(".app#quiz h1").html(`You scored ${score}/${questions.length}`);
         score = 0;
         qIndex = -1;
         answerIndex = -1;
         $(nextBtn).text("Retry");
     }
 
+    function showPicture() {
+        $("#quiz").css("transform", "scale(0)");
+        setTimeout(() => {
+            $("#quiz").hide();
+            $("#picture").show();
+            setTimeout(() => {
+                $("#picture").css("transform", "scale(1)");
+                setTimeout(() => {
+                    $("#picture").css("transform", "scale(0)");
+                    setTimeout(() => {
+                        $("#picture").hide();
+                        $("#quiz").show();
+                        setTimeout(() => {
+                            $("#quiz").css("transform", "scale(1)");
+                            setTimeout(showQuestion, 300);
+                        }, 100);
+                    }, 300);
+                }, 4300);
+            }, 100);
+        }, 300);
+
+    }
+
     $(ansBtns).click(selectAnswer);
 
     $(nextBtn).click(() => {
-       if (qIndex !== -1) {
+        var isCorrect;
+        if (qIndex !== -1) {
             const selBtn = $(".ans-btn.selected");
             const btnText = $(selBtn).text();
-            const isCorrect = questions[qIndex].answer === btnText;
+            isCorrect = questions[qIndex].answer === btnText;
             $(selBtn).removeClass("selected");
             if (isCorrect) {
                 score++;
@@ -75,13 +99,17 @@ $(document).ready(() => {
                 $(selBtn).addClass("incorrect");
                 $(ansBtns[answerIndex]).addClass("correct");
             }
+        } else {
+            $(".app#quiz h1").html("How much do you know about Thalapathy?");
         }
         qIndex++;
-        if (qIndex < questions.length) setTimeout(showQuestion, 1000);
+        if (qIndex < questions.length)
+            if (isCorrect) setTimeout(showPicture, 1000);
+            else setTimeout(showQuestion, 1000);
         else {
             showResult();
         }
     })
-
+    $("#picture").hide();
     setTimeout(startQuiz, 1000);
 });
