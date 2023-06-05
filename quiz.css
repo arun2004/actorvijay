@@ -5,6 +5,7 @@
     margin: 100px auto 0;
     border-radius: 10px;
     padding: 30px;
+    transition: .3s ease-out;
 }
 
 .app h1 {
