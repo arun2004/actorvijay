@@ -215,7 +215,7 @@ $(function () {
         nLen,
         ind,
         // imgUrls = [5, 1, 7, 3, 9, 6, 11, 4, 2, 13, 10, 8, 12, 14, 15, 16];
-        imgUrls = [1, 2, 3, 4, 5, 11, 7, 8, 9, 10, 12, 6, 13, 14, 16, 15];
+        imgUrls = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 16, 15];
 
     function moveImage() {
         var blankTileIndex,
