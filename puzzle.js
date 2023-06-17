@@ -276,8 +276,6 @@ $(function () {
         $("#img-6 img").attr("src", "./img/core-img/blank.png");
         $("#img-11").addClass("question-mark");
         $("#img-11 img").attr("src", "./img/core-img/blank.png");
-        $("#img-12").addClass("question-mark");
-        $("#img-12 img").attr("src", "./img/core-img/blank.png");
 
         blank = 16;
         $("#img-" + blank)
