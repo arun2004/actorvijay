@@ -251,7 +251,7 @@ $(function () {
     function win_check() {
         var images = $(".img");
         for (var i = 0; i < 16; i++) {
-            if ($($(images)[i]).hasClass("question-mark")) continue;
+//             if ($($(images)[i]).hasClass("question-mark")) continue;
             var cur_img_no = parseInt($($(images)[i]).attr("id").slice(4, 10), 10);
             if (cur_img_no != i + 1) return;
         }
@@ -272,10 +272,10 @@ $(function () {
             $("#img-" + imgUrls[i - 1]).on("click", moveImage);
         }
 
-        $("#img-6").addClass("question-mark");
-        $("#img-6 img").attr("src", "./img/core-img/blank.png");
-        $("#img-11").addClass("question-mark");
-        $("#img-11 img").attr("src", "./img/core-img/blank.png");
+//         $("#img-6").addClass("question-mark");
+//         $("#img-6 img").attr("src", "./img/core-img/blank.png");
+//         $("#img-11").addClass("question-mark");
+//         $("#img-11 img").attr("src", "./img/core-img/blank.png");
 
         blank = 16;
         $("#img-" + blank)
